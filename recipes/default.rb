@@ -23,13 +23,22 @@ include_recipe "unblibraries-users::sysadmin"
 include_recipe "unblibraries-users::developers"
 include_recipe "unblibraries-users::applications"
 
-directory "/var/www" do
+
+template "#{node['apache']['dir']}/sites-available/default" do
+  source   'default-site.erb'
+  owner    'root'
+  group    node['apache']['root_group']
+  mode     '0644'
+  notifies :restart, 'service[apache2]'
+end
+
+directory "#{node['apache']['dir']}" do
   owner "www-data"
   group "developers"
   mode 02775
 end
 
-file "/var/www/index.html" do
+file "#{node['apache']['dir']}/index.html" do
   owner "www-data"
   group "developers"
   mode 00665
@@ -50,13 +59,14 @@ end
 
 # Add default page.
 #
-template "/var/www/index.php" do
+template "#{node['apache']['dir']}/index.php" do
  source "index.php.erb"
  owner "vagrant"
  group "vagrant"
  mode 00775
 end
 
-file "/var/www/index.html" do
+file "#{node['apache']['dir']}/index.html" do
   action :delete
 end
+
