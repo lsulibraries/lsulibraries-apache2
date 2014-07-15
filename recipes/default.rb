@@ -33,13 +33,13 @@ template "#{node['apache']['dir']}/sites-available/default" do
 end
 
 directory "#{node['apache']['dir']}" do
-  owner "www-data"
+  owner #{node['apache']['user']}
   group "developers"
   mode 02775
 end
 
 file "#{node['apache']['dir']}/index.html" do
-  owner "www-data"
+  owner #{node['apache']['user']}
   group "developers"
   mode 00665
 end
@@ -61,8 +61,8 @@ end
 #
 template "#{node['apache']['dir']}/index.php" do
  source "index.php.erb"
- owner "vagrant"
- group "vagrant"
+ owner #{node['apache']['user']}
+ group "developers"
  mode 00775
 end
 
