@@ -50,8 +50,8 @@ end
 
 # Update to reasonable PHP.ini variables.
 #
-template "/etc/php5/apache2/php.ini" do
- source "php.ini.erb"
+template "/etc/php5/apache2/conf.d/local.ini" do
+ source "local.ini.erb"
  owner "root"
  group "root"
  mode 00775
@@ -69,4 +69,3 @@ end
 file "#{node['apache']['dir']}/index.html" do
   action :delete
 end
-
