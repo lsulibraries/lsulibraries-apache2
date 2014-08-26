@@ -22,7 +22,7 @@ include_recipe "apache2::mod_wsgi"
 include_recipe "unblibraries-users::sysadmin"
 include_recipe "unblibraries-users::developers"
 include_recipe "unblibraries-users::applications"
-
+include_recipe "unblibraries-munin"
 
 template "#{node['apache']['dir']}/sites-available/default" do
   source   'default-site.erb'
