@@ -6,6 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+include_recipe "hostname"
 include_recipe "unblibraries-essentials"
 include_recipe "unblibraries-mysql"
 include_recipe "php"
