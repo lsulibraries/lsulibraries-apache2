@@ -9,7 +9,6 @@ version          '0.1.0'
 depends "unblibraries-essentials"
 depends "unblibraries-mysql"
 depends "php"
-depends "php-mcrypt"
 depends "apache2"
 depends "unblibraries-users"
 depends "unblibraries-munin"
