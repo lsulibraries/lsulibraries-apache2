@@ -24,7 +24,7 @@ include_recipe "unblibraries-users::developers"
 include_recipe "unblibraries-users::applications"
 include_recipe "unblibraries-munin"
 
-template "#{node['apache']['dir']}/sites-available/default" do
+template "#{node['apache']['dir']}/sites-available/000-default" do
   source   'default-site.erb'
   owner    'root'
   group    node['apache']['root_group']
