@@ -32,16 +32,10 @@ template "#{node['apache']['dir']}/sites-available/000-default" do
   notifies :restart, 'service[apache2]'
 end
 
-directory "#{node['apache']['dir']}" do
+directory "#{node['apache']['docroot_dir']}" do
   owner #{node['apache']['user']}
   group "developers"
   mode 02775
-end
-
-file "#{node['apache']['dir']}/index.html" do
-  owner #{node['apache']['user']}
-  group "developers"
-  mode 00665
 end
 
 package "php5-ldap" do
@@ -59,13 +53,13 @@ end
 
 # Add default page.
 #
-template "#{node['apache']['dir']}/index.php" do
+template "#{node['apache']['docroot_dir']}/index.php" do
  source "index.php.erb"
  owner #{node['apache']['user']}
  group "developers"
  mode 00775
 end
 
-file "#{node['apache']['dir']}/index.html" do
+file "#{node['apache']['docroot_dir']}/index.html" do
   action :delete
 end
