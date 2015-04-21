@@ -1,4 +1,6 @@
 override['set_fqdn'] = node['razor_metadata']['hostname']
+ovveride['apache']['mpm'] = 'prefork'
+
 default['apache']['default_site_enabled'] = true
 default['apache']['docroot_dir'] = '/var/www/html'
 
