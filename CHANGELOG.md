@@ -1,10 +1,10 @@
-# CHANGELOG for unblibraries-apache2
+# CHANGELOG for lsulibraries-apache2
 
-This file is used to list changes made in each version of unblibraries-apache2.
+This file is used to list changes made in each version of lsulibraries-apache2.
 
 ## 0.1.0:
 
-* Initial release of unblibraries-apache2
+* Initial release of lsulibraries-apache2
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

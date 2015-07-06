@@ -1,4 +1,4 @@
-unblibraries-apache2 Cookbook
+lsulibraries-apache2 Cookbook
 ================================
 TODO: Enter the cookbook description here.
 
@@ -11,14 +11,14 @@ TODO: List your cookbook requirements. Be sure to include any requirements this 
 
 e.g.
 #### packages
-- `toaster` - unblibrariesi-apache2 needs toaster to brown your bagel.
+- `toaster` - lsulibrariesi-apache2 needs toaster to brown your bagel.
 
 Attributes
 ----------
 TODO: List you cookbook attributes here.
 
 e.g.
-#### unblibraries-apache2::default
+#### lsulibraries-apache2::default
 <table>
   <tr>
     <th>Key</th>
@@ -27,7 +27,7 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['unblibraries-apache2']['bacon']</tt></td>
+    <td><tt>['lsulibraries-apache2']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -36,17 +36,17 @@ e.g.
 
 Usage
 -----
-#### unblibraries-apache2::default
+#### lsulibraries-apache2::default
 TODO: Write usage instructions for each cookbook.
 
 e.g.
-Just include `unblibraries-apache2` in your node's `run_list`:
+Just include `lsulibraries-apache2` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[unblibraries-apache2]"
+    "recipe[lsulibraries-apache2]"
   ]
 }
 ```

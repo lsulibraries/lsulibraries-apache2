@@ -1,27 +1,28 @@
 #
-# Cookbook Name:: unblibraries-apache2
+# Cookbook Name:: lsulibraries-apache2
 # Recipe:: default
 #
 # Copyright 2013, YOUR_COMPANY_NAME
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe "hostname"
-include_recipe "unblibraries-essentials"
-include_recipe "unblibraries-mysql"
+#include_recipe "hostname"
+#include_recipe "lsulibraries-essentials"
+include_recipe "lsulibraries-mysql"
 include_recipe "php"
 include_recipe "php::module_mysql"
 include_recipe "php::module_curl"
 include_recipe "php::module_gd"
+include_recipe "php::module_ldap"
 include_recipe "apache2"
 include_recipe "apache2::mod_php5"
 include_recipe "apache2::mod_rewrite"
 include_recipe "apache2::mod_proxy"
 include_recipe "apache2::mod_proxy_http"
-include_recipe "unblibraries-users::sysadmin"
-include_recipe "unblibraries-users::developers"
-include_recipe "unblibraries-users::applications"
-include_recipe "unblibraries-munin"
+#include_recipe "lsulibraries-users::sysadmin"
+#include_recipe "lsulibraries-users::developers"
+#include_recipe "lsulibraries-users::applications"
+#include_recipe "lsulibraries-munin"
 
 template "#{node['apache']['dir']}/sites-available/000-default" do
   source   'default-site.erb'
@@ -33,21 +34,8 @@ end
 
 directory "#{node['apache']['docroot_dir']}" do
   owner #{node['apache']['user']}
-  group "developers"
+  group #{node['apache']['user']}
   mode 02775
-end
-
-package "php5-ldap" do
-  action :install
-end
-
-# Update to reasonable PHP.ini variables.
-#
-template "/etc/php5/apache2/conf.d/local.ini" do
- source "local.ini.erb"
- owner "root"
- group "root"
- mode 00775
 end
 
 # Add default page.
@@ -55,7 +43,7 @@ end
 template "#{node['apache']['docroot_dir']}/index.php" do
  source "index.php.erb"
  owner #{node['apache']['user']}
- group "developers"
+ group #{node['apache']['user']}
  mode 00775
 end
 
