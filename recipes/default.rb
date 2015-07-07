@@ -8,7 +8,7 @@
 #
 #include_recipe "hostname"
 #include_recipe "lsulibraries-essentials"
-include_recipe "lsulibraries-mysql"
+
 include_recipe "php"
 include_recipe "php::module_mysql"
 include_recipe "php::module_curl"
