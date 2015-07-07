@@ -9,16 +9,9 @@
 #include_recipe "hostname"
 #include_recipe "lsulibraries-essentials"
 
-include_recipe "php"
-include_recipe "php::module_mysql"
-include_recipe "php::module_curl"
-include_recipe "php::module_gd"
-include_recipe "php::module_ldap"
 include_recipe "apache2"
-include_recipe "apache2::mod_php5"
-include_recipe "apache2::mod_rewrite"
-include_recipe "apache2::mod_proxy"
-include_recipe "apache2::mod_proxy_http"
+include_recipe "selinux::permissive"
+
 #include_recipe "lsulibraries-users::sysadmin"
 #include_recipe "lsulibraries-users::developers"
 #include_recipe "lsulibraries-users::applications"
@@ -50,3 +43,4 @@ end
 file "#{node['apache']['docroot_dir']}/index.html" do
   action :delete
 end
+
